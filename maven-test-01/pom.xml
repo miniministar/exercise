@@ -15,7 +15,7 @@
     </modules>
 
     <properties>
-        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.version>5.2.5.RELEASE</spring.version>
         <tomcat.version>2.2</tomcat.version>
         <junit.version>4.12</junit.version>
     </properties>
