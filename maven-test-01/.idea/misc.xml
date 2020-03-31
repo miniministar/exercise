@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/aop-01" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm-01" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm-02" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm-03" />
+    <file type="web" url="file://$PROJECT_DIR$/tomcat7-run-01" />
+    <file type="web" url="file://$PROJECT_DIR$/tomcat7-run-02" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/ssm-01/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm-02/pom.xml" />
+        <option value="$PROJECT_DIR$/tomcat7-run-02/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectResources">
+    <default-html-doctype>jar:file:\C:\Program Files\JetBrains\IntelliJ IDEA 2019.1\lib\platform-impl.jar!\standardSchemas\xhtml1-transitional.xsd</default-html-doctype>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
