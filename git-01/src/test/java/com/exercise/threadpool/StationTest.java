@@ -29,7 +29,7 @@ public class StationTest {
         executorService.submit(station);
         executorService.submit(station);
         try {
-            System.in.read();//加入该代码，让主线程不挂掉
+            System.in.read();//加入该代码，让主线程不挂掉，junit测试时必须要加
         } catch (IOException e) {
             e.printStackTrace();
         }
