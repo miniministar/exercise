@@ -1,4 +1,0 @@
-com\exercise\controller\HomeController.class
-com\exercise\aop\MyLog$Logtype.class
-com\exercise\aop\LoginInterceptor.class
-com\exercise\aop\MyLog.class
