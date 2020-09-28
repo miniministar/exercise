@@ -1,0 +1,35 @@
+server:
+  port: 8202
+
+spring:
+  application:
+    name: user-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/user-center?serverTimezone=PRC&useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password: 1qaz2wsx!QAZ@WSX
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  main:
+    allow-bean-definition-overriding: true
+
+
+  freemarker:
+    enabled: true
+    suffix: .html
+    request-context-attribute: text/html
+    charset: utf-8
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mime-types:
+        - text/xml
+        - application/xml
+        - application/json
+      min-request-size: 2048
+    response:
+      enabled: true
