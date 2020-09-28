@@ -72,4 +72,17 @@ public class MoguController {
         String reponse = HttpClientUtil.doGet(urlParams);
         return  reponse;
     }
+
+    @PostMapping("getDetail")
+    @ApiOperation(value = "", notes = " {\"page\":1,\"pageSize\":20,\"isGoBackup\":true,\"cKey\":\"app-clothing-v1\",\"fcid\":\"20000484\"}")
+    public String getDetail(@RequestBody QueryVo vo) {
+        UrlParams urlParams = new UrlParams();
+        urlParams.setCookie("__mgjuuid=3e482381-6a92-4853-a140-76c06279731a; FRMS_FINGERPRINTN=_51veHI3TjmsSvMSjwKUVw; _ga=GA1.2.1520040884.1600612476; _mwp_h5_token_enc=2051c5bde0e1e5aa6669ab30bd9216ea; _mwp_h5_token=b0dbd2998c04c90da0a092d7763bd2fc_1601300153679; _gid=GA1.2.766618084.1601300195");
+        urlParams.setReferer("https://m.mogu.com/wall/s?q=%E5%A5%B3%E8%A3%85&ptp=32._mf1_1239_4537.0.0.0gB0BHOW&acm=3.mce.1_10_1prjy.140653.0.gGQ8fsbk55526.pos_873-m_601027-sd_119-mf_4537_1211938-idx_1-mfs_15-dm1_5000");
+        String url = "https://api.mogu.com/h5/http.detail.api/1/?data=%7B%22appPlat%22%3A%22m%22%2C%22sourceParams%22%3A%22%22%2C%22template%22%3A%221-2-detail_normal-1.0.0%22%2C%22iid%22%3A%221mviwp6%22%2C%22activityId%22%3A%22%22%7D&mw-appkey=100028&mw-ttid=NMMain%40mgj_h5_1.0&mw-t=1601300733319&mw-uuid=3e482381-6a92-4853-a140-76c06279731a&mw-h5-os=iOS&mw-sign=124d6cb51cac1e3273f981f0a7f7f665&callback=mwpCb1&_=1601300733327";
+        urlParams.setUrl(url);
+        log.info("url: {}", urlParams);
+        String reponse = HttpClientUtil.doGet(urlParams);
+        return  reponse;
+    }
 }
