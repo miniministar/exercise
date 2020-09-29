@@ -1,0 +1,4 @@
+logging:
+  level:
+    # log 级别
+    com.kaopudian: debug

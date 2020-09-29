@@ -13,12 +13,15 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-
-  freemarker:
-    enabled: true
-    suffix: .html
-    request-context-attribute: text/html
-    charset: utf-8
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8200/eureka/
+#  instance:
+#    instance-id: ${spring.application.name}:${server.port}
+#    prefer-ip-address: true
 
 feign:
   hystrix:

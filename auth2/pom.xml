@@ -18,6 +18,9 @@
     <modules>
         <module>security-user</module>
         <module>order-server</module>
+        <module>eureka-server</module>
+        <module>gateway-server</module>
+        <module>zuul-server</module>
     </modules>
 
     <properties>

@@ -60,6 +60,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @Bean
     public ClientDetailsService clientDetailsService(DataSource dataSource)
     {

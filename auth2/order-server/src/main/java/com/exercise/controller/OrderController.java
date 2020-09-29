@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @GetMapping(value = "/r1")
-    @PreAuthorize("hasAnyAuthority('role:delete/roles/{id}')") // 拥有p1权限方可发个文
+    @PreAuthorize("hasAnyAuthority('p1')") // 拥有p1权限方可发个文
     public String r1()
     {
         return "访问资源1";
