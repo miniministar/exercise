@@ -5,7 +5,6 @@ import org.springframework.security.authorization.ReactiveAuthorizationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.web.server.authorization.AuthorizationContext;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
@@ -24,17 +23,17 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
     public Mono<AuthorizationDecision> check(Mono<Authentication> mono, AuthorizationContext authorizationContext) {
         //从安全上下文中拿 到用户身份对象
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(!(authentication instanceof OAuth2Authentication)){
-            return null;
-        }
-        OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) authentication;
-        Authentication userAuthentication = oAuth2Authentication.getUserAuthentication();
-        //取出用户身份信息
-        String principal = userAuthentication.getName();
+//        if(!(authentication instanceof OAuth2Authentication)){
+//            return null;
+//        }
+//        OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) authentication;
+//        Authentication userAuthentication = oAuth2Authentication.getUserAuthentication();
+//        //取出用户身份信息
+//        String principal = userAuthentication.getName();
         //取出用户权限
         List<String> authorities = new ArrayList<>();
         //从userAuthentication取出权限，放在authorities
-        userAuthentication.getAuthorities().stream().forEach(c->authorities.add(((GrantedAuthority) c).getAuthority()));
+//        userAuthentication.getAuthorities().stream().forEach(c->authorities.add(((GrantedAuthority) c).getAuthority()));
 
         //认证通过且角色匹配的用户可访问当前路径
         return mono

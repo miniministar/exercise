@@ -21,6 +21,7 @@
         <module>eureka-server</module>
         <module>gateway-server</module>
         <module>zuul-server</module>
+        <module>gateway-forward</module>
     </modules>
 
     <properties>
