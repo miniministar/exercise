@@ -85,4 +85,17 @@ public class MoguController {
         String reponse = HttpClientUtil.doGet(urlParams);
         return  reponse;
     }
+
+    @PostMapping("recommend")
+    @ApiOperation(value = "", notes = "")
+    public String recommend(@RequestBody QueryVo vo) {
+        UrlParams urlParams = new UrlParams();
+        urlParams.setCookie("__mgjuuid=3e482381-6a92-4853-a140-76c06279731a; FRMS_FINGERPRINTN=_51veHI3TjmsSvMSjwKUVw; _ga=GA1.2.1520040884.1600612476; _mwp_h5_token_enc=2051c5bde0e1e5aa6669ab30bd9216ea; _mwp_h5_token=b0dbd2998c04c90da0a092d7763bd2fc_1601300153679");
+        urlParams.setReferer("https://h5.mogu.com/detail-normal/index.html?itemId=1mviwp6&acm=3.ms.1_1_1mviwp6.46.86084-68998.mLA6GscauEH7i.ct_1200-sd_117-swt_46-imt_7-c_2_17_589133381_556115615_1_0-t_mLA6GscauEH7i-lc_17-pit_2-c1_88933_nil_nil_1_556115615_50_0-dit_-idx_0-dm1_5001&cparam=MTYwMTU1NTI2MF8xamhpYjlhX2MwMjAxNjZlNzZhMzM4M2I1MDExNDY5ZDFmMjYzYTkzXzE3XzBfNTg5MTMzMzgxXzQ4OGZfMF8xXzBfNDk1XzFfMF9ycy04ODkzMy5ydC0xLnd0LTA=&ptp=32.rPCjb.undefined.1.5nLlcVtC");
+        String url = "https://api.mogu.com/h5/mwp.darwin.get/3/?data=%7B%22appPlat%22%3A%22m%22%2C%22plat%22%3A%22h5%22%2C%22pageSize%22%3A12%2C%22pid%22%3A%225018%22%2C%22iidE%22%3A%221mviwp6%22%7D&mw-appkey=100028&mw-ttid=NMMain%40mgj_h5_1.0&mw-t=1601558724575&mw-uuid=3e482381-6a92-4853-a140-76c06279731a&mw-h5-os=iOS&mw-sign=32fbd08d6449376eeebf58c4b8ffb255&callback=mwpCb3&_=1601558724577";
+        urlParams.setUrl(url);
+        log.info("url: {}", urlParams);
+        String reponse = HttpClientUtil.doGet(urlParams);
+        return  reponse;
+    }
 }
