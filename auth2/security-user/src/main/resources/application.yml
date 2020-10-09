@@ -6,7 +6,7 @@ spring:
     name: user-server
   datasource:
     url: jdbc:mysql://localhost:3306/user-center?serverTimezone=PRC&useUnicode=true&characterEncoding=utf8&useSSL=true
-    username: root
+    username: kpd
     password: 1qaz2wsx!QAZ@WSX
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource

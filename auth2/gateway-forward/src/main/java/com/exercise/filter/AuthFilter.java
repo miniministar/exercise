@@ -36,12 +36,6 @@ import java.util.Map;
 public class AuthFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-//        Object principal = authentication.getPrincipal();
-//
-//        Object details = SecurityContextHolder.getContext().getAuthentication().getDetails();
-//        log.info("details:{}", details);
         String token = exchange.getRequest().getHeaders().getFirst("Authorization");
         if (!StringUtils.isEmpty(token)) {
             //从token中解析用户信息并设置到Header中去

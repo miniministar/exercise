@@ -17,8 +17,8 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .authorizeExchange()
                 .pathMatchers("/**").permitAll()
-                //option 请求默认放行
-                .pathMatchers(HttpMethod.OPTIONS).permitAll()
+//               //option 请求默认放行
+//                .pathMatchers(HttpMethod.OPTIONS).permitAll()
                 .and()
                 .formLogin()
         ;
