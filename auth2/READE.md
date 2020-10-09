@@ -1,10 +1,13 @@
-# security oauth2
+# spring security + oauth2 + jwt + gateway 实现统一身份认证
 
 ```$xslt
-├──security-user    --认证服务
-├──order-server     --资源服务
+├──security-user        --认证服务
+├──gateway-forward      --统一网关
+├──order-server         --资源服务
+├──resources            --数据库等静态资源
 ```
 
+##基础讲解
 ### 四种授权模式
 > "authorization_code", "password", "client_credentials", "implicit", "refresh_token"
 - 密码模式（resource owner password credentials）(为遗留系统设计)(支持refresh token)
@@ -70,9 +73,13 @@ client_id=c1&client_secret=secret&grant_type=client_credentials
 /oauth/check_token?token=289d1f2d-26f5-4f2d-9542-6c4d3f0a936c
 
 访问资源
+http://localhost:8205/order/r/r1?abc=123
 ~~~~
 
 ## 网关整合auth2
 > 网关整合auth2有两种方式
 > 1. 认证服务器生成jwt令牌，所有请求统一在网关层验证，判断权限
 > 2. 由资源服务处理，网关只做请求转发
+
+### 使用spring gateway作为网关
+ 
