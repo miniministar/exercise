@@ -1,9 +1,0 @@
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\component\RestfulAccessDeniedHandler.java
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\config\TokenConfig.java
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\config\WebSecurityConfig.java
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\config\ResourceServerConfig.java
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\util\EncryptUtil.java
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\filter\AuthFilter.java
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\GatewayServer.java
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\component\RestAuthenticationEntryPoint.java
-D:\workspace\github\exercise\auth2\gateway-server\src\main\java\com\exercise\config\AuthorizationManager.java
