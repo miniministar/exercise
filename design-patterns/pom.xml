@@ -11,6 +11,7 @@
 
     <modules>
        <module>01-seven-principle</module>
+        <module>02-pattern-factory</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

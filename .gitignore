@@ -32,7 +32,7 @@ hs_err_pid*
 *.class
 
 # maven
-*/target
+*target
 
 #忽略所有.svn目录
 .svn/
