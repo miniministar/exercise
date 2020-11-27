@@ -7,7 +7,12 @@ public class LazySingleton {
     }
 
     public static LazySingleton getSingleton() {
-        if(singleton == null) singleton = new LazySingleton();
+        if(singleton == null) {
+            synchronized (LazySingleton.class) {
+                if(singleton == null)
+                singleton = new LazySingleton();
+            }
+        }
         return singleton;
     }
 }
