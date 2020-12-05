@@ -17,6 +17,7 @@
         <module>05-pattern-proxy</module>
         <module>06-pattern-delegate</module>
         <module>07-pattern-strategy</module>
+        <module>08-pattern-template</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,6 +29,9 @@
         <jsp.api.version>2.2</jsp.api.version>
         <easymock.version>4.2</easymock.version>
         <spring.version>5.0.16.RELEASE</spring.version>
+        <mysql.version>8.0.21</mysql.version>
+        <druid.version>1.2.2</druid.version>
+
     </properties>
 
     <dependencyManagement>
@@ -56,6 +60,17 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
