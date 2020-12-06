@@ -18,6 +18,9 @@
         <module>06-pattern-delegate</module>
         <module>07-pattern-strategy</module>
         <module>08-pattern-template</module>
+        <module>09-pattern-adapter</module>
+        <module>10-pattern-decorator</module>
+        <module>11-pattern-observer</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,6 +34,7 @@
         <spring.version>5.0.16.RELEASE</spring.version>
         <mysql.version>8.0.21</mysql.version>
         <druid.version>1.2.2</druid.version>
+        <guava.version>20.0</guava.version>
 
     </properties>
 
@@ -71,6 +75,12 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
