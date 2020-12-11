@@ -8,15 +8,17 @@ public class Question {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public Question setUserName(String userName) {
         this.userName = userName;
+        return this;
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public Question setContent(String content) {
         this.content = content;
+        return this;
     }
 }
