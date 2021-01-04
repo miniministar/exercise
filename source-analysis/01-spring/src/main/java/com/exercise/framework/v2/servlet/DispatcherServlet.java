@@ -1,7 +1,10 @@
 package com.exercise.framework.v2.servlet;
 
-import com.exercise.framework.annotation.*;
+import com.exercise.framework.annotation.Autowired;
+import com.exercise.framework.annotation.QueryParam;
+import com.exercise.framework.annotation.RequestMapping;
 import com.exercise.framework.annotation.init.BeanInitStrategy;
+import com.exercise.framework.convert.ConvertStrategy;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -14,6 +17,7 @@ import java.io.InputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -53,13 +57,38 @@ public class DispatcherServlet extends HttpServlet {
             return;
         }
 
-        //todo 获取参数并测试
-        Method method = handler.getMethod();
+        Class<?>[] paramTypes = handler.getParamTypes();
+        Object[] paramValues = new Object[paramTypes.length];
         Map<String, String[]> params = req.getParameterMap();
-        method.invoke(this.ioc.get(method.getDeclaringClass().getName()), new Object[ ]{ req, resp, params.get("name")[0] } );
 
+        for (Map.Entry<String, String[]> entry : params.entrySet()) {
+            String value = Arrays.toString(entry.getValue()).replaceAll("\\[|\\]", "").replaceAll("\\s", "");
+            if(!handler.paramIndexMapping.containsKey(entry.getKey())) continue;
+
+            Integer index = handler.paramIndexMapping.get(entry.getKey());
+            //url传过来的参数都是String类型的，HTTP是基于字符串协议
+            //只需要把String转换为任意类型就好
+            paramValues[index] = ConvertStrategy.convert(paramTypes[index], value);
+
+        }
+
+        if(handler.paramIndexMapping.containsKey(HttpServletRequest.class.getName())) {
+            int reqIndex = handler.paramIndexMapping.get(HttpServletRequest.class.getName());
+            paramValues[reqIndex] = req;
+        }
+
+        if(handler.paramIndexMapping.containsKey(HttpServletResponse.class.getName())) {
+            int respIndex = handler.paramIndexMapping.get(HttpServletResponse.class.getName());
+            paramValues[respIndex] = resp;
+        }
+
+        Method method = handler.getMethod();
+        Object returnValues = method.invoke(handler.controller, paramValues);
+        if(returnValues == null || returnValues instanceof Void) return;
+        resp.getWriter().write(returnValues.toString());
 
     }
+
 
     private Handler getHandler(HttpServletRequest req) {
         if(handlerMapping.isEmpty()){return null;}
@@ -199,6 +228,7 @@ public class DispatcherServlet extends HttpServlet {
         private Method method;
         private Object controller;
         private Class<?> [] paramTypes;
+        private String[] paramNames;
 
         //形参列表
         //参数的名字作为key,参数的顺序，位置作为值
@@ -241,6 +271,10 @@ public class DispatcherServlet extends HttpServlet {
             this.method = method;
             this.controller = controller;
 
+//            this.paramNames = getMethodParameterNamesByAsm4(controller.getClass(), method);
+//            List<String> namesByAsm = AsmMethods.getParamNamesByAsm(method);
+//            this.paramNames = namesByAsm.toArray(new String[namesByAsm.size()]);
+
             paramTypes = method.getParameterTypes();
             paramIndexMapping = new HashMap<String, Integer>();
             putParamIndexMapping(method);
@@ -263,16 +297,88 @@ public class DispatcherServlet extends HttpServlet {
             }
 
             //提取方法中的request和response参数
-            Class<?> [] paramsTypes = method.getParameterTypes();
-            for (int i = 0; i < paramsTypes.length ; i ++) {
-                Class<?> type = paramsTypes[i];
+//            Class<?> [] paramsTypes = method.getParameterTypes();
+//            for (int i = 0; i < paramsTypes.length ; i ++) {
+//                Class<?> type = paramsTypes[i];
+//                if(type.isAnnotationPresent(QueryParam.class)) continue;
+//                if(type == HttpServletRequest.class ||
+//                        type == HttpServletResponse.class){
+//                    paramIndexMapping.put(type.getName(),i);
+//                }
+//            }
+
+            Parameter[] parameters = method.getParameters();
+            for (int i = 0; i < parameters.length ; i ++) {
+                Parameter parameter = parameters[i];
+                if(parameter.isAnnotationPresent(QueryParam.class)) continue;
+
+                Class<?> type = parameter.getType();
                 if(type == HttpServletRequest.class ||
                         type == HttpServletResponse.class){
                     paramIndexMapping.put(type.getName(),i);
+                    continue;
                 }
+                boolean namePresent = parameter.isNamePresent();
+                String name = parameter.getName();
+                paramIndexMapping.put(parameter.getName(), i);
             }
 
+
         }
+
+
     }
 
+    /**
+     * 获取指定类指定方法的参数名
+     *
+     * @param clazz 要获取参数名的方法所属的类
+     * @param method 要获取参数名的方法
+     * @return 按参数顺序排列的参数名列表，如果没有参数，则返回null
+     */
+//    public static String[] getMethodParameterNamesByAsm4(Class<?> clazz, final Method method) {
+//        final Class<?>[] parameterTypes = method.getParameterTypes();
+//        if (parameterTypes == null || parameterTypes.length == 0) {
+//            return null;
+//        }
+//        final Type[] types = new Type[parameterTypes.length];
+//        for (int i = 0; i < parameterTypes.length; i++) {
+//            types[i] = Type.getType(parameterTypes[i]);
+//        }
+//        final String[] parameterNames = new String[parameterTypes.length];
+//
+//        String className = clazz.getName();
+//        int lastDotIndex = className.lastIndexOf(".");
+//        className = className.substring(lastDotIndex + 1) + ".class";
+//        InputStream is = clazz.getResourceAsStream(className);
+//        try {
+//            ClassReader classReader = new ClassReader(is);
+//            classReader.accept(new ClassVisitor(Opcodes.ASM4) {
+//                @Override
+//                public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
+//                    // 只处理指定的方法
+//                    Type[] argumentTypes = Type.getArgumentTypes(desc);
+//                    if (!method.getName().equals(name) || !Arrays.equals(argumentTypes, types)) {
+//                        return null;
+//                    }
+//                    return new MethodVisitor(Opcodes.ASM4) {
+//                        @Override
+//                        public void visitLocalVariable(String name, String desc, String signature, Label start, Label end, int index) {
+//                            // 静态方法第一个参数就是方法的参数，如果是实例方法，第一个参数是this
+//                            if (Modifier.isStatic(method.getModifiers())) {
+//                                parameterNames[index] = name;
+//                            }
+//                            else if (index > 0) {
+//                                parameterNames[index - 1] = name;
+//                            }
+//                        }
+//                    };
+//
+//                }
+//            }, 0);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return parameterNames;
+//    }
 }

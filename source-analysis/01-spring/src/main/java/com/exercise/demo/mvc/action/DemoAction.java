@@ -28,4 +28,8 @@ public class DemoAction {
         }
     }
 
+    @RequestMapping("/add")
+    public Integer add(@QueryParam("a") Integer a, Integer b) {
+        return  a + b;
+    }
 }
