@@ -12,10 +12,10 @@
     <artifactId>01-spring</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>servlet-api</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
