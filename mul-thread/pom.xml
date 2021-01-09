@@ -13,6 +13,11 @@
     <packaging>pom</packaging>
     <modules>
         <module>01-thread-basics</module>
+        <module>02-juc</module>
+        <module>03-thread-pool</module>
+        <module>04-rpc-server</module>
+        <module>05-rpc-client</module>
+        <module>06-io</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +32,7 @@
         <mysql.version>8.0.21</mysql.version>
         <druid.version>1.2.2</druid.version>
         <guava.version>20.0</guava.version>
-
+        <lombok.version>1.18.12</lombok.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -72,6 +77,11 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
