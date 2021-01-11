@@ -17,9 +17,6 @@
         <module>03-thread-pool</module>
         <module>04-rpc-server</module>
         <module>05-rpc-client</module>
-        <module>06-io</module>
-        <module>netty-tomcat</module>
-        <module>netty-rpc</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
