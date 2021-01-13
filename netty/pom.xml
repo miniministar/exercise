@@ -12,6 +12,7 @@
         <module>01-netty-io</module>
         <module>02-tomcat</module>
         <module>03-netty-rpc</module>
+        <module>04-netty-chat</module>
     </modules>
 
     <properties>
@@ -22,6 +23,8 @@
         <junit.version>4.12</junit.version>
         <lombok.version>1.18.12</lombok.version>
         <netty.version>4.1.6.Final</netty.version>
+        <fastjson.version>1.2.74</fastjson.version>
+        <msgpack.version>0.6.12</msgpack.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -39,6 +42,16 @@
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.msgpack</groupId>
+                <artifactId>msgpack</artifactId>
+                <version>${msgpack.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
