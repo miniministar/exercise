@@ -13,6 +13,7 @@
         <module>02-tomcat</module>
         <module>03-netty-rpc</module>
         <module>04-netty-chat</module>
+        <module>05-netty-pattern</module>
     </modules>
 
     <properties>

@@ -1,9 +1,5 @@
 package netty.rpc.consumer;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 import netty.rpc.api.IRpcHelloService;
 import netty.rpc.api.IRpcService;
 import netty.rpc.consumer.proxy.RpcProxy;

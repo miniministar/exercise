@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@ComponentScan(basePackages = "rpc.server")
+@ComponentScan(basePackages = "netty.rpc")
 public class SpringConfig {
 
     @Bean(name="rpcServer")
