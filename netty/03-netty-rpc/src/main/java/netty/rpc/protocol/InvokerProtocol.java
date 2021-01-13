@@ -12,4 +12,8 @@ public class InvokerProtocol implements Serializable {
     private String methodName;
     private Class[] params;
     private Object[] values;
+
+    public void setParams(Class<?>[] parameterTypes) {
+        this.params = parameterTypes;
+    }
 }
