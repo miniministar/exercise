@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>01-kafka-api</module>
+        <module>02-kafka-spring-boot</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
