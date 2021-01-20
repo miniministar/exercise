@@ -14,6 +14,7 @@
     <modules>
         <module>01-kafka-api</module>
         <module>02-kafka-spring-boot</module>
+        <module>03-rabbitmq-api</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,6 +23,7 @@
 
         <kafka-client.version>2.0.0</kafka-client.version>
         <junit.vesion>4.13</junit.vesion>
+        <amqp-client.version>5.7.3</amqp-client.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -34,6 +36,11 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.vesion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>${amqp-client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
