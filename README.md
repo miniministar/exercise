@@ -1,4 +1,4 @@
-# 练习测试
+# java生态练习
 ### 组织结构
 ```
 ├── auth2 -- spring seucrity 练习
