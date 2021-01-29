@@ -19,6 +19,7 @@
         <module>spring-boot-demo</module>
         <module>mq-demo</module>
         <module>nosql</module>
+        <module>distributed-cluster</module>
     </modules>
     <groupId>com.exercise</groupId>
     <version>1.0-SNAPSHOT</version>
