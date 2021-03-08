@@ -18,10 +18,10 @@ public class GuavaAdviceTest {
         bus.register(teacher);
         bus.post(new Question().setUserName("张三").setContent("guava 发布问题"));
 
-        GuavaTeacher teacher2 = new GuavaTeacher("guava 大师2");
-        bus.register(teacher2);
-
-        bus.post(new Question().setUserName("李四").setContent("guava 发布问题"));
+//        GuavaTeacher teacher2 = new GuavaTeacher("guava 大师2");
+//        bus.register(teacher2);
+//
+//        bus.post(new Question().setUserName("李四").setContent("guava 发布问题"));
 
 
     }

@@ -40,9 +40,9 @@ public class ReflexBasicApiTest {
         System.out.println(addInt);
 
         //获取属性
-        Field name = clazz.getDeclaredField("name");
-        name.setAccessible(true);
-        name.set(user1, "user1");
-        System.out.println(name.get(user1));
+        Field filed = clazz.getDeclaredField("name");
+        filed.setAccessible(true);
+        filed.set(user1, "user1");
+        System.out.println(filed.get(user1));
     }
 }
