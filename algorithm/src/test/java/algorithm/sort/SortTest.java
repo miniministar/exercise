@@ -26,4 +26,11 @@ public class SortTest {
         new Insertion().sort(nums);
         System.out.println(Arrays.asList(nums));
     }
+
+    @Test
+    public void shellSort() {
+        Integer[] nums = {5, 23, 10, 20, 1, 12, 53, 6};
+        new Shell().sort(nums);
+        System.out.println(Arrays.asList(nums));
+    }
 }
