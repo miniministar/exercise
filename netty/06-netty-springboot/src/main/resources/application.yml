@@ -1,0 +1,4 @@
+webSocket:
+  netty:
+    port: 8081
+    path: /webSocket
