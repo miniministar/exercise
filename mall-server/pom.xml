@@ -20,7 +20,7 @@
         <api.version>1.0-SNAPSHOT</api.version>
 
         <fastjson.version>1.2.47</fastjson.version>
-        <httpclient.version>4.5.12</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
 
         <lombok.varsion>1.18.12</lombok.varsion>
 
