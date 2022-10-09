@@ -54,7 +54,7 @@ public class OptionalTest {
         Optional<String> s = Optional.ofNullable(user3).map(u -> u.getName());
         String username = s.orElse("默认用户名");
         System.out.println(username);
-        Optional.ofNullable(user3).flatMap(u->u.getName());
+//        Optional.ofNullable(user3).flatMap(u->u.getName());
 
 
         System.out.println("this process is end.");

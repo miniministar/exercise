@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 public class StreamTest {
 
     public static void main(String[] args) {
+        List<Employee> employeeList = Employee.getEmps();
+
         Random random = new Random();
         List<User> users = new ArrayList<>();
         for (int i = 1; i < 11; i++) {
@@ -30,25 +32,49 @@ public class StreamTest {
         System.out.println("stream获取列表对象中的某个字段集合");
         ageList.forEach(System.out :: println);
 
+        System.out.println("=====================sorted排序 start ================================================");
         System.out.println("stream按列表对象中的某个字段排序集合");
         List<User> sortedUserList = users.stream().sorted(Comparator.comparing(User::getAge)).collect(Collectors.toList());
         sortedUserList.forEach(System.out :: println);
+        System.out.println("自然排序");
+        List<Integer> sortedNature = users.stream().map(User::getAge).sorted().collect(Collectors.toList());
+        sortedNature.forEach(System.out :: println);
+        System.out.println("逆序");
+        List<User> sortedReversed = users.stream().sorted(Comparator.comparing(User::getAge).reversed()).collect(Collectors.toList());
+        sortedReversed.forEach(System.out ::println);
+        System.out.println("多字段排序");
+        List<User> mulSorted = users.stream().sorted(Comparator.comparing(User::getAge, Comparator.reverseOrder()).thenComparing(User::getName)).collect(Collectors.toList());
+        mulSorted.forEach(System.out ::println);
+        System.out.println("=====================sorted排序 end  ================================================");
 
         System.out.println("stream按列表对象中的某个字段分组获取集合");
         //groupingBy(Function) 一个参数：一个分组器，使用提供的字段对集合元素进行分组，返回一个Map<字段，相同字段值的元素集>
         Map<String, List<User>> groupUserMap = users.stream().collect(Collectors.groupingBy(User::getName));
         groupUserMap.forEach((k,v)->{
-            System.out.println(k);
-            System.out.println(v);
+            System.out.println(k + "->" + v);
         });
         //groupingBy(Function,Collector) 2个参数：一个是分组器，按提供的字段进行分组。一个收集器，下面举例了3种用途
-        List<Employee> employeeList = Employee.getEmps();
         employeeList.forEach(System.out :: println);
         Map<String, IntSummaryStatistics> groupBySumMap = employeeList.stream().collect(Collectors.groupingBy(Employee::getCity, Collectors.summarizingInt(Employee::getSales)));
         groupBySumMap.forEach((k, v)->{
-            System.out.printf("城市：" + k +"，销售总额："+ v);
+            System.out.println("城市：" + k +"，销售总额："+ v);
         });
-        employeeList.stream().collect(Collectors.groupingBy(Employee ::getCity, ))
+        System.out.println("stream按列表对象中的某个字段分组,再提取组内对象取某个字段");
+        Map<String, Set<String>> groupByObjToSet = employeeList.stream().collect(Collectors.groupingBy(Employee::getCity, Collectors.mapping(Employee::getName, Collectors.toSet())));
+        groupByObjToSet.forEach((k, v) -> {
+            System.out.println("城市："+k +",销售员：" + v);
+        });
+        System.out.println("stream按列表对象中的某个字段分组,再提取组内最大销售额");
+        Map<String, Employee> groupByMax = employeeList.stream().collect(Collectors.groupingBy(Employee::getCity, Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(Employee::getSales)), Optional::get)));
+        groupByMax.forEach((k, v) -> {
+            System.out.println("城市：" + k + "， 最大销售额人员：" + v);
+        });
+        System.out.println("groupingBy参数：一个分组器，一个最终类型的生产者，一个收集器");
+        TreeMap<String, Set<String>> groupBy3Parmas = employeeList.stream().collect(Collectors.groupingBy(Employee::getCity, TreeMap::new, Collectors.mapping(Employee::getName, Collectors.toSet())));
+        groupBy3Parmas.forEach((k, v) -> {
+            System.out.println("城市：" + k + "， 人员：" + v);
+        });
+
 
         System.out.println("stream按列表对象中的某个字段获取map, key重复取第2个");
         Map<String, User> userNameMap = users.stream().collect(Collectors.toMap(i -> i.getName(), i -> i, (v1, v2)-> v2));
