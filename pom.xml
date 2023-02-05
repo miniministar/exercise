@@ -23,6 +23,7 @@
         <module>java-basic-grammer</module>
         <module>algorithm</module>
         <module>spring-boot-demo/04-spring-boot-web-test</module>
+        <module>yun</module>
     </modules>
     <groupId>com.exercise</groupId>
     <version>1.0-SNAPSHOT</version>
