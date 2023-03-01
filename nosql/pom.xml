@@ -32,7 +32,7 @@
         <redisson.version>3.5.4</redisson.version>
         <fastjson.version>1.2.83</fastjson.version>
         <bloom-filter.version>1.0.7</bloom-filter.version>
-        <mysql.version>8.0.27</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <mybatis-spring-starter.version>1.1.1</mybatis-spring-starter.version>
     </properties>
     <dependencyManagement>
