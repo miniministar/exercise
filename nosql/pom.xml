@@ -26,13 +26,13 @@
         <jedis.version>3.5.0</jedis.version>
         <lombak.version>1.18.16</lombak.version>
         <commons-lang3.version>3.10</commons-lang3.version>
-        <commons-io.version>2.6</commons-io.version>
-        <guava.version>22.0</guava.version>
+        <commons-io.version>2.7</commons-io.version>
+        <guava.version>24.1.1</guava.version>
         <cglib.version>3.1</cglib.version>
         <redisson.version>3.5.4</redisson.version>
-        <fastjson.version>1.2.74</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <bloom-filter.version>1.0.7</bloom-filter.version>
-        <mysql.version>8.0.21</mysql.version>
+        <mysql.version>8.0.27</mysql.version>
         <mybatis-spring-starter.version>1.1.1</mybatis-spring-starter.version>
     </properties>
     <dependencyManagement>
