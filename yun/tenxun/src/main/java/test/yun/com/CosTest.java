@@ -64,9 +64,9 @@ public class CosTest {
 
         try {
             // 云 api 密钥 SecretId
-            config.put("secretId", "AKIDQowrgHdvwjGWWHCsJVR8h1575qPjndEW");
+            config.put("secretId", "secretId");
             // 云 api 密钥 SecretKey
-            config.put("secretKey", "JQHtJWUEj04uY0GHCtMcfUGo7A2h8NQI");
+            config.put("secretKey", "secretKey");
 
             // 设置域名,可通过此方式设置内网域名
             //config.put("host", "sts.internal.tencentcloudapi.com");

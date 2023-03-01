@@ -110,6 +110,11 @@ public class StreamTest {
         System.out.println("年龄中的最小值：" + intSummaryStatistics.getMin());
         System.out.println("年龄中的平均值：" + intSummaryStatistics.getAverage());
         System.out.println("年龄中的和：" + intSummaryStatistics.getSum());
+
+        Map<String, Long> nameCount = users.stream().collect(Collectors.groupingBy(User::getName, Collectors.counting()));
+        nameCount.forEach((k,v)->{
+            System.out.println(k + "->" + v);
+        });
     }
 
 
