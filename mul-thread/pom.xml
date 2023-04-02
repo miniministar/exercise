@@ -30,7 +30,7 @@
         <spring.version>5.0.16.RELEASE</spring.version>
         <mysql.version>8.0.27</mysql.version>
         <druid.version>1.2.2</druid.version>
-        <guava.version>24.1.1</guava.version>
+        <guava.version>31.1-jre</guava.version>
         <lombok.version>1.18.12</lombok.version>
     </properties>
     <dependencyManagement>
