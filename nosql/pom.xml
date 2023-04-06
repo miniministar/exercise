@@ -15,6 +15,7 @@
         <module>01-redis-basic</module>
         <module>02-redis-redission</module>
         <module>03-redis-springboot</module>
+        <module>04-mongodb</module>
     </modules>
 
     <properties>
@@ -33,9 +34,15 @@
         <bloom-filter.version>1.0.7</bloom-filter.version>
         <mysql.version>8.0.21</mysql.version>
         <mybatis-spring-starter.version>1.1.1</mybatis-spring-starter.version>
+        <hutool.version>5.7.19</hutool.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
