@@ -30,6 +30,9 @@
         <guava.version>22.0</guava.version>
         <cglib.version>3.1</cglib.version>
         <redisson.version>3.5.4</redisson.version>
+        <redisson-spring.version>3.11.5</redisson-spring.version>
+        <redisson-boot.version>3.11.5</redisson-boot.version>
+        <idempotent.version>0.1.0</idempotent.version>
         <fastjson.version>1.2.74</fastjson.version>
         <bloom-filter.version>1.0.7</bloom-filter.version>
         <mysql.version>8.0.21</mysql.version>
@@ -73,10 +76,20 @@
                 <artifactId>cglib-nodep</artifactId>
                 <version>${cglib.version}</version>
             </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.redisson</groupId>-->
+<!--                <artifactId>redisson</artifactId>-->
+<!--                <version>${redisson.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.redisson</groupId>
-                <artifactId>redisson</artifactId>
-                <version>${redisson.version}</version>
+                <artifactId>redisson-spring-data-21</artifactId>
+                <version>${redisson-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -84,11 +97,11 @@
                 <version>${fastjson.version}</version>
             </dependency>
             <!-- CountingBloomFilter 带计数器的布隆过滤器-->
-            <dependency>
-                <groupId>com.baqend</groupId>
-                <artifactId>bloom-filter</artifactId>
-                <version>${bloom-filter.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.baqend</groupId>-->
+<!--                <artifactId>bloom-filter</artifactId>-->
+<!--                <version>${bloom-filter.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -98,6 +111,11 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.pig4cloud.plugin</groupId>
+                <artifactId>idempotent-spring-boot-starter</artifactId>
+                <version>${idempotent.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

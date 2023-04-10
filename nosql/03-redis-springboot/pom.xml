@@ -28,10 +28,10 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.baqend</groupId>
-            <artifactId>bloom-filter</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baqend</groupId>-->
+<!--            <artifactId>bloom-filter</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
