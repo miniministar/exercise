@@ -29,12 +29,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <lombok.version>1.18.12</lombok.version>
-        <netty.version>4.1.6.Final</netty.version>
-        <fastjson.version>1.2.74</fastjson.version>
+        <netty.version>4.1.42.Final</netty.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <msgpack.version>0.6.12</msgpack.version>
-        <hutool-all.version>5.6.1</hutool-all.version>
+        <hutool-all.version>5.8.11</hutool-all.version>
         <slf4j.version>1.7.30</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
     </properties>

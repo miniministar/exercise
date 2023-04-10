@@ -15,7 +15,6 @@
         <module>01-redis-basic</module>
         <module>02-redis-redission</module>
         <module>03-redis-springboot</module>
-        <module>04-mongodb</module>
     </modules>
 
     <properties>
@@ -26,8 +25,8 @@
         <jedis.version>3.5.0</jedis.version>
         <lombak.version>1.18.16</lombak.version>
         <commons-lang3.version>3.10</commons-lang3.version>
-        <commons-io.version>2.6</commons-io.version>
-        <guava.version>22.0</guava.version>
+        <commons-io.version>2.7</commons-io.version>
+        <guava.version>31.1-jre</guava.version>
         <cglib.version>3.1</cglib.version>
         <redisson.version>3.5.4</redisson.version>
         <redisson-spring.version>3.11.5</redisson-spring.version>
@@ -35,7 +34,7 @@
         <idempotent.version>0.1.0</idempotent.version>
         <fastjson.version>1.2.74</fastjson.version>
         <bloom-filter.version>1.0.7</bloom-filter.version>
-        <mysql.version>8.0.21</mysql.version>
+        <mysql.version>8.0.27</mysql.version>
         <mybatis-spring-starter.version>1.1.1</mybatis-spring-starter.version>
         <hutool.version>5.7.19</hutool.version>
     </properties>
