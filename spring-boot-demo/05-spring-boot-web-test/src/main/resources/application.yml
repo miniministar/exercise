@@ -1,0 +1,58 @@
+server:
+  port: 8080
+person:
+  id: 1
+  name: tom
+  farmily: [son,mother]
+  hobby: [打游戏]
+  map: {k1: o1, k2: o2}
+  pet:
+    type: dog
+    name: 旺财
+simplebean:
+  id: 1
+  name: simplebean
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: dev
+  datasource:
+    db1:
+      jdbc-url: jdbc:mysql:///db1?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTime=UTC
+      username: test
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    db2:
+      jdbc-url: jdbc:mysql:///db2?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTime=UTC
+      username: test
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    #将client作为服务注册到server，通过server来监听项目的运行情况
+  boot:
+    admin:
+      client:
+        url: http://localhost:8081
+        enabled: true
+        instance:
+          service-url: http://localhost:8080
+  application:
+    name: test
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+management:
+  # endpoints是对所有端点的全局配置
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  # endpoint是对某个端点的详细配置
+  endpoint:
+    health:
+      show-details: always

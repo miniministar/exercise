@@ -15,6 +15,8 @@
         <module>01-format-spring-boot-starter</module>
         <module>02-mystarter-test</module>
         <module>03-zookeeper</module>
+        <module>05-spring-boot-web-test</module>
+        <module>06-my-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -22,13 +24,23 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <spring-boot.version>2.2.12.RELEASE</spring-boot.version>
+        <spring-boot.version>2.6.11</spring-boot.version>
         <junit.version>4.13.1</junit.version>
         <lombok.version>1.18.12</lombok.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <hutool.version>5.8.15</hutool.version>
+        <acturator-admin.version>2.7.10</acturator-admin.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -45,14 +57,19 @@
                 <version>${fastjson.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
-                <version>${spring-boot.version}</version>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>${spring-boot.version}</version>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${acturator-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${acturator-admin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -71,6 +88,13 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

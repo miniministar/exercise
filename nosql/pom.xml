@@ -26,6 +26,7 @@
         <lombak.version>1.18.16</lombak.version>
         <commons-lang3.version>3.10</commons-lang3.version>
         <commons-io.version>2.7</commons-io.version>
+        <commons-pool2.version>2.11.1</commons-pool2.version>
         <guava.version>31.1-jre</guava.version>
         <cglib.version>3.1</cglib.version>
         <redisson.version>3.5.4</redisson.version>
@@ -37,6 +38,7 @@
         <mysql.version>8.0.27</mysql.version>
         <mybatis-spring-starter.version>1.1.1</mybatis-spring-starter.version>
         <hutool.version>5.7.19</hutool.version>
+        <spring-boot.version>2.2.12.RELEASE</spring-boot.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -64,6 +66,11 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -115,6 +122,13 @@
                 <groupId>com.pig4cloud.plugin</groupId>
                 <artifactId>idempotent-spring-boot-starter</artifactId>
                 <version>${idempotent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
