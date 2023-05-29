@@ -48,6 +48,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         jacksonSeial.setObjectMapper(mapper);
         // 设置RedisTemplate模板的序列化方式为jacksonSeial
         template.setDefaultSerializer(jacksonSeial);
+        template.setKeySerializer(new StringRedisSerializer());
         return template;
     }
 
