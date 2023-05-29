@@ -26,29 +26,26 @@ import java.time.Duration;
 @ConditionalOnClass(RedisOperations.class)
 @EnableConfigurationProperties(RedisProperties.class)
 public class RedisConfig extends CachingConfigurerSupport {
-	/**
-     *  自定义RedisTemplate
+    /**
+     * 自定义RedisTemplate
      * @param redisConnectionFactory
      * @return
      */
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-    	//大多数情况，都是选用<String, Object>
+        //使用单例ObjectMapper实例
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        mapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory);
-
-        // 使用JSON的序列化对象，对数据key和value进行序列化转换
-        Jackson2JsonRedisSerializer<Object> jacksonSeial = new Jackson2JsonRedisSerializer<Object>(Object.class);
-        //ObjectMapper是Jackson的一个工作类，顾名思义他的作用是将JSON映射到Java对象即反序列化，或将Java对象映射到JSON即序列化
-        ObjectMapper mapper = new ObjectMapper();
-        // 设置序列化时的可见性，第一个参数是选择序列化哪些属性，比如时序列化setter?还是filed?h第二个参数是选择哪些修饰符权限的属性来序列化，比如private或者public，这里的any是指对所有权限修饰的属性都可见(可序列化)
-        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        // 设置出现故障即错误的类型，第一个是指验证程序，此时的参数为无需验证，其他参数可以查看源码了解，第二是指该类不能为final修饰，否则将会报错
-        mapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
+        //使用单例StringRedisSerializer实例
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+        template.setKeySerializer(stringRedisSerializer);
+        // 使用 Jackson2JsonRedisSerializer 对数据 value 进行序列化
+        Jackson2JsonRedisSerializer<Object> jacksonSeial = new Jackson2JsonRedisSerializer(Object.class);
         jacksonSeial.setObjectMapper(mapper);
-        // 设置RedisTemplate模板的序列化方式为jacksonSeial
         template.setDefaultSerializer(jacksonSeial);
-        template.setKeySerializer(new StringRedisSerializer());
         return template;
     }
 
