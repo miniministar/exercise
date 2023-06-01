@@ -26,7 +26,7 @@
         <commons-io.version>2.7</commons-io.version>
         <guava.version>31.1-jre</guava.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <mysql.version>8.0.27</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <druid.version>1.2.4</druid.version>
         <mybatis-spring-starter.version>1.1.1</mybatis-spring-starter.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
