@@ -1,7 +1,12 @@
 package rabbitmq.entity;
 
+import lombok.Data;
+import lombok.ToString;
+
 import java.io.Serializable;
 
+@ToString
+@Data
 public class Merchant implements Serializable {
     int id; // 商户编号
     String name; // 商户名称
@@ -20,53 +25,6 @@ public class Merchant implements Serializable {
         this.address = address;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    public String getAccountNo() {
-        return accountNo;
-    }
-
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
-    }
-
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getStateStr() {
         if(null == state){
             return "";
@@ -77,9 +35,5 @@ public class Merchant implements Serializable {
         }else{
             return "未知";
         }
-    }
-
-    public void setStateStr(String stateStr) {
-        this.stateStr = state;
     }
 }

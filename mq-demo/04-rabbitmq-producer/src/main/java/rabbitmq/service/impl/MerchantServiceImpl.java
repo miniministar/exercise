@@ -16,17 +16,17 @@ import java.util.List;
 public class MerchantServiceImpl implements MerchantService {
 
 
-    @Value("${com.gupaoedu.topicexchange}")
+    @Value("${com.rabbitmq.topicexchange}")
     private String topicExchange;
 
-    @Value("${com.gupaoedu.topicroutingkey1}")
+    @Value("${com.rabbitmq.topicroutingkey1}")
     private String topicRoutingKey;
 
     @Autowired
     private MerchantMapper merchantMapper;
 
     @Autowired
-    AmqpTemplate gupaoTemplate;
+    AmqpTemplate rabbitmqTemplate;
 
 
     @Override
@@ -48,7 +48,7 @@ public class MerchantServiceImpl implements MerchantService {
         title.put("type","add");
         title.put("desc","新增商户");
         title.put("content",jsonBody);
-        gupaoTemplate.convertAndSend(topicExchange,topicRoutingKey, title.toJSONString());
+        rabbitmqTemplate.convertAndSend(topicExchange,topicRoutingKey, title.toJSONString());
 
         return k;
     }
@@ -63,7 +63,7 @@ public class MerchantServiceImpl implements MerchantService {
         title.put("type","state");
         title.put("desc","更新商户状态");
         title.put("content",jsonBody);
-        gupaoTemplate.convertAndSend(topicExchange,topicRoutingKey, title.toJSONString());
+        rabbitmqTemplate.convertAndSend(topicExchange,topicRoutingKey, title.toJSONString());
 
         return k;
     }
@@ -78,7 +78,7 @@ public class MerchantServiceImpl implements MerchantService {
         title.put("type","update");
         title.put("desc","更新商户信息");
         title.put("content",jsonBody);
-        gupaoTemplate.convertAndSend(topicExchange,topicRoutingKey, title.toJSONString());
+        rabbitmqTemplate.convertAndSend(topicExchange,topicRoutingKey, title.toJSONString());
 
         return k;
     }
@@ -96,7 +96,7 @@ public class MerchantServiceImpl implements MerchantService {
         title.put("desc","删除商户");
         title.put("content",jsonBody);
 
-        gupaoTemplate.convertAndSend(topicExchange,topicRoutingKey, title.toJSONString());
+        rabbitmqTemplate.convertAndSend(topicExchange,topicRoutingKey, title.toJSONString());
 
         return k;
     }

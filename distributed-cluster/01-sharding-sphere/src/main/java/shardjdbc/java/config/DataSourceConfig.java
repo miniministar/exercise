@@ -47,7 +47,7 @@ public class DataSourceConfig {
     // 根据数据源地址创建 DataSource
     private DataSource createDataSource(final String dataSourceName) {
         BasicDataSource result = new BasicDataSource();
-        result.setDriverClassName("com.mysql.jdbc.Driver");
+        result.setDriverClassName("com.mysql.cj.jdbc.Driver");
         result.setUrl(dataSourceName);
         result.setUsername("root");
         result.setPassword("root");

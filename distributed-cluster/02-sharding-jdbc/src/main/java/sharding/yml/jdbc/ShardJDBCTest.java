@@ -21,7 +21,7 @@ public class ShardJDBCTest {
 
         // 配置第一个数据源
         BasicDataSource dataSource1 = new BasicDataSource();
-        dataSource1.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource1.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource1.setUrl("jdbc:mysql://localhost:3306/shard0?characterEncoding=utf8&useSSL=false&serverTimezone=UTC");
         dataSource1.setUsername("root");
         dataSource1.setPassword("root");
@@ -29,7 +29,7 @@ public class ShardJDBCTest {
 
         // 配置第二个数据源
         BasicDataSource dataSource2 = new BasicDataSource();
-        dataSource2.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource2.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource2.setUrl("jdbc:mysql://localhost:3306/shard1?characterEncoding=utf8&useSSL=false&serverTimezone=UTC");
         dataSource2.setUsername("root");
         dataSource2.setPassword("root");
