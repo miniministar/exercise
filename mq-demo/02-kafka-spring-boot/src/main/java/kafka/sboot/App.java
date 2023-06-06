@@ -12,6 +12,7 @@ public class App {
         ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
         Producer producer = context.getBean(Producer.class);
         for (int i = 0; i < 10; i++) {
+            System.out.printf("" + i);
             producer.send();
             TimeUnit.SECONDS.sleep(1);
         }

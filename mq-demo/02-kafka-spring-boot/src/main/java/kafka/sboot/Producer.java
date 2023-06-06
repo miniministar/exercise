@@ -9,6 +9,8 @@ public class Producer {
     @Autowired
     private KafkaTemplate<Integer, String> kafkaTemplate;
     public void send() {
-        kafkaTemplate.send("test", 1,"msgData");
+        String msgData= "msgData";
+        kafkaTemplate.send("test", 1,msgData);
+        System.out.println("发送消息成功："+msgData);
     }
 }
