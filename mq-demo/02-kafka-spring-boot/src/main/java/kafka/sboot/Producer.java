@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Producer {
     @Autowired
-    private KafkaTemplate<Integer, String> kafkaTemplate;
+    private KafkaTemplate<String, Object> kafkaTemplate;
     public void send() {
         String msgData= "msgData";
-        kafkaTemplate.send("test", 1,msgData);
+        kafkaTemplate.send("test", "1", msgData);
         System.out.println("发送消息成功："+msgData);
     }
 }
