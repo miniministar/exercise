@@ -1,0 +1,24 @@
+server:
+  port: 8073
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    #DATABASE_TO_UPPER的意思是，让数据库对大小写敏感，DB_CLOSE_DELAY=-1的意思是让数据库和JVM同生命周期
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false;MODE=Mysql
+    username: sa
+    password:
+    # 初始化数据库中的数据，可以没有 /每次运行在h2数据中创建对应的表
+    schema: classpath:test/db/init_table.sql
+  h2:
+    console:
+      path: /h2-console
+      settings:
+        web-allow-others: true
+        trace: true
+      enabled: true
+  application:
+    name: spring-spock-test
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/mapper/*/*.xml
