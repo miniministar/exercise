@@ -28,6 +28,10 @@ public class ReflexBasicApiTest {
         System.out.println(user2);
         System.out.println(user3);
 
+        //基本数据类型和包装数据类型获取class
+        Class<Integer> integerClass = int.class;
+        Class<Integer> type = Integer.TYPE;
+
         //通过反射获取 对象方法
         Method method1 = clazz.getMethod("getAge");
         Method method2 = clazz.getMethod("compareTo", User.class);

@@ -17,6 +17,7 @@
         <module>03-zookeeper</module>
         <module>05-spring-boot-web-test</module>
         <module>06-my-spring-boot-starter</module>
+        <module>05-native-service</module>
     </modules>
 
     <properties>

@@ -14,7 +14,6 @@
         <module>nosql</module>
         <module>distributed-cluster</module>
         <module>java-basic-grammer</module>
-        <module>algorithm</module>
         <module>spring-boot-demo/04-spring-boot-web-test</module>
         <module>yun</module>
         <module>spring-cloud-albaba-exercise</module>
